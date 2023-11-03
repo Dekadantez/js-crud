@@ -1,55 +1,4 @@
 @use '../../lib/service.scss' as s;
-.form {
-    display: flex;
-    padding: s.space(4);
-    flex-direction: column;
-    gap: s.space(8);
-
-    &__title { /// & заменяет form
-        font-size: 20px;
-        font-weight: bold;
-        padding-bottom: s.space(1);
-        border-bottom: 1px solid s.color('light');
-    }
-
-    &__content {
-        display: grid;
-        gap: s.space(6);
-    }
-
-    &__field {
-        display: flex;
-        flex-direction: column;
-        gap: s.space(2);
-    }
-
-    &__label {
-        font-size: 14px;
-    }
-    &__input {
-        border-bottom: 1px solid s.color('light');
-        padding: s.space(2);
-    }
-    &__button {
-        border: 1px solid s.color('light');
-        padding: s.space(2);
-        border-radius: 20px;
-    }
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.user-list {
-    li {
-        padding-right: 15px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-}
 .product__section {
     display: flex;
     flex-direction: column;
@@ -76,8 +25,17 @@ main {
     }
 
     &__content {
-        display: grid;
+        display: flex;
+        justify-content: space-between;
         gap: s.space(6);
+
+        span {
+font-size: 24px;
+        }
+
+        button {
+            width: 450px;
+        }
     }
 
     &__field {
@@ -106,7 +64,6 @@ main {
         height: 60px;
         font-size: 24px;
     }
-
     &__block {
    display: flex;
    flex-direction: row;

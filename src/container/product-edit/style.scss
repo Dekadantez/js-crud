@@ -90,32 +90,24 @@ main {
         font-size: 20px;
     }
     &__input {
+
         border: 1px solid s.color('light');
         padding: s.space(2);
-        height: 60px;
-        max-width: 100%;
-        width: 800px;
 
     }
     &__button {
         border: 1px solid s.color('light');
         padding: s.space(2);
         border-radius: 2px;
-        background-color: blue;
-        color: #ddd;
-        height: 60px;
         font-size: 24px;
     }
-
     &__block {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-
+        gap: 10px;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
 
     }
     &__label1 {
-    // width: 900px;
     font-size: 20px;
     }
 
@@ -135,4 +127,30 @@ main {
         padding-top: 5px;
         padding-bottom: 5px;
     }
+}
+
+.button__block {
+    display: flex;
+    justify-content: space-between;
+
+
+}
+.button__red {
+    background-color: red;
+    color: #ddd;
+    border: 1px solid s.color('light');
+    padding: s.space(2);
+    border-radius: 2px;
+    font-size: 24px;
+    width:600px;
+}
+.button__blue {
+    background-color: blue;
+    color: #ddd;
+    border: 1px solid s.color('light');
+    padding: s.space(2);
+    border-radius: 2px;
+    font-size: 24px;
+    max-width: 100%;
+    width:600px;
 }

@@ -85,23 +85,17 @@ main {
 .product__input {
   border: 1px solid #ddd;
   padding: 8px;
-  height: 60px;
-  max-width: 100%;
-  width: 800px;
 }
 .product__button {
   border: 1px solid #ddd;
   padding: 8px;
   border-radius: 2px;
-  background-color: blue;
-  color: #ddd;
-  height: 60px;
   font-size: 24px;
 }
 .product__block {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 .product__label1 {
   font-size: 20px;
@@ -119,6 +113,32 @@ main {
   padding-right: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.button__block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button__red {
+  background-color: red;
+  color: #ddd;
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 2px;
+  font-size: 24px;
+  width: 600px;
+}
+
+.button__blue {
+  background-color: blue;
+  color: #ddd;
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 2px;
+  font-size: 24px;
+  max-width: 100%;
+  width: 600px;
 }
 
 /*# sourceMappingURL=style.css.map */
