@@ -1,49 +1,3 @@
-.form {
-  display: flex;
-  padding: 16px;
-  flex-direction: column;
-  gap: 32px;
-}
-.form__title {
-  font-size: 20px;
-  font-weight: bold;
-  padding-bottom: 4px;
-  border-bottom: 1px solid #ddd;
-}
-.form__content {
-  display: grid;
-  gap: 24px;
-}
-.form__field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.form__label {
-  font-size: 14px;
-}
-.form__input {
-  border-bottom: 1px solid #ddd;
-  padding: 8px;
-}
-.form__button {
-  border: 1px solid #ddd;
-  padding: 8px;
-  border-radius: 20px;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.user-list li {
-  padding-right: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
 .product__section {
   display: flex;
   flex-direction: column;
@@ -66,13 +20,21 @@ main {
   border: 1px solid rgb(160, 158, 158);
 }
 .product__title {
-  font-size: 28px;
+  font-size: 60px;
   font-weight: bold;
   padding-bottom: 4px;
+  color: #007bff;
 }
 .product__content {
-  display: grid;
+  display: flex;
+  justify-content: center;
   gap: 24px;
+}
+.product__content span {
+  font-size: 24px;
+}
+.product__content button {
+  width: 450px;
 }
 .product__field {
   display: flex;
@@ -119,6 +81,50 @@ main {
   padding-right: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.block_card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid rgb(234, 233, 233);
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 5px 2px 5px rgb(235, 232, 232);
+  column-gap: 20px;
+}
+.card__title {
+  font-size: 32px;
+  font-weight: 600;
+  padding-bottom: 28px;
+  padding-top: 20px;
+}
+.card__text {
+  font-size: 24px;
+  padding-bottom: 40px;
+  font-weight: 400;
+}
+.card__id {
+  color: gray;
+  padding-bottom: 40px;
+  font-size: 28px;
+}
+.card__sect {
+  display: flex;
+  justify-content: space-between;
+}
+.card__price {
+  font-size: 28px;
+  font-weight: 600;
+}
+.card__link {
+  font-size: 20px;
+  text-decoration: none;
+  color: #007bff;
 }
 
 /*# sourceMappingURL=style.css.map */

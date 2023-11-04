@@ -3,7 +3,7 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
 }}
 <main>
-  <section>
+  {{!-- <section>
     <div class="form">
       <h1 class="form__title">Створити користувача</h1>
       <form method="POST" action="/user-create">
@@ -67,7 +67,70 @@
         </div>
       </form>
     </div>
+  </section> --}}
+
+  {{!-- /////==========Product --}}
+
+  <section>
+    <div class="product__section">
+      <h1 class="product__title_head"><strong>Створення товару</strong></h1>
+      <div class="product">
+        <h1 class="product__title">Інформація про товар</h1>
+        <form method="POST" action="/product-create">
+          <div class="product__content">
+            <div class="product__block">
+              <div class="product__field">
+                <label for="name" class="product__label1">Назва товара:</label>
+                <input type="text" name="name" class="product__input">
+              </div>
+              <div class="product__field">
+                <label for="price" class="product__label1">Ціна:</label>
+                <input type="text" name="price" class="product__input">
+              </div>
+            </div>
+            <div class="product__field">
+              <label for="description" class="product__label">Короткий опис товара</label>
+              <input type="text" name="description" class="product__input_info">
+              <label class="product__lab">Відображується у картці товара</label>
+            </div>
+
+            <button class="product__button">Створити товар</button>
+
+
+          </div>
+        </form>
+      </div>
+    </div>
   </section>
+
+
+  <section>
+    <div class="product__section">
+      <div class="product">
+        <h1 class="product__title">Список товарів</h1>
+        <form method="POST" action="/">
+          <div class="product__content">
+            <div class="product-list">
+              {{#with data.products}}
+              {{#if isEmpty}}
+              <mark>пустий</mark>
+              {{else}}
+              <ul>
+                {{#each list}}
+                <li> {{name}} | {{price}} | {{description}} | {{id}} <a href="/product-delete?id={{id}}">(Видалити)</a>
+                </li>
+                {{/each}}
+              </ul>
+              {{/if}}
+              {{/with}}
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
 </main>
 
 
