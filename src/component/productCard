@@ -1,4 +1,4 @@
-{{#each card}}
+<!-- {{#each card}}
 <div class="card">
     <div class="card__title">{{title}}</div>
     <div class="card__text">{{description}}</div>
@@ -8,4 +8,4 @@
         <a href="" class="card__link">Редагувати</a>
     </div>
 </div>
-{{/each}}
+{{/each}} -->

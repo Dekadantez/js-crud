@@ -1,0 +1,34 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 24px;
+  gap: 32px;
+  border: 1px solid rgb(160, 158, 158);
+  margin: 20px;
+}
+.card__header {
+  gap: 40px;
+}
+.card__title {
+  font-size: 36px;
+  font-weight: bold;
+  padding-bottom: 16px;
+}
+.card__subtitle {
+  font-size: 28px;
+}
+.card__button {
+  border: 1px solid #ddd;
+  padding: 28px;
+  border-radius: 2px;
+  background-color: blue;
+  color: #ddd;
+  height: 100%;
+  font-size: 24px;
+  width: 400px;
+  text-decoration: none;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
