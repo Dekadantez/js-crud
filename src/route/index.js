@@ -467,13 +467,13 @@ class Purchase {
       product: purchase.product.title,
       totalPrice: purchase.totalPrice,
       bonus: Purchase.calcBonusAmount(purchase.totalPrice),
-      firstname: purchase.firstname,
-      lastname: purchase.lastname,
-      phone: purchase.phone,
-      email: purchase.email,
-      comment: purchase.comment,
-      deliveryPrice: purchase.deliveryPrice,
-      productPrice: purchase.productPrice,
+      // firstname: purchase.firstname,
+      // lastname: purchase.lastname,
+      // phone: purchase.phone,
+      // email: purchase.email,
+      // comment: purchase.comment,
+      // deliveryPrice: purchase.deliveryPrice,
+      // productPrice: purchase.productPrice,
     }))
   }
 
@@ -541,8 +541,7 @@ router.get('/', function (req, res) {
 //   res.render('index', {
 //     style: 'index',
 
-//     data: {
-//     },
+//     data: {},
 //   })
 // })
 //=========================================================
@@ -788,35 +787,153 @@ router.get('/purchase-list', function (req, res) {
 })
 //=========================================================
 router.get('/purchase-info', function (req, res) {
-  const list = Purchase.getList()
-
-  res.render('purchase-info', {
-    style: 'purchase-info',
-    data: {
-      purchases: {
-        list,
-      },
-    },
-  })
-})
-//=========================================================
-//=========================================================
-router.get('/purchase-update', function (req, res) {
+  // res.render генерує нам HTML сторінку
   const id = Number(req.query.id)
   const purchase = Purchase.getById(id)
-  console.log(id, purchase)
+  const bonus = Purchase.calcBonusAmount(
+    purchase.totalPrice,
+  )
+  console.log('purchase:', purchase, bonus)
+  // ↙️ cюди вводимо назву файлу з сontainer
+  res.render('purchase-info', {
+    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+    style: 'purchase-info',
+    component: ['heading', 'divider', 'button'],
 
-  res.render('purchase-update', {
-    style: 'purchase-update',
+    title: 'Інформація про замовлення',
+
     data: {
       id: purchase.id,
       firstname: purchase.firstname,
       lastname: purchase.lastname,
       phone: purchase.phone,
       email: purchase.email,
+      delivery: purchase.delivery,
+      product: purchase.product.title,
+      productPrice: purchase.productPrice,
+      deliveryPrice: purchase.deliveryPrice,
+      totalPrice: purchase.totalPrice,
+      bonus: bonus,
     },
   })
+  // ↑↑ сюди вводимо JSON дані
 })
 //=========================================================
+//=========================================================
+// router.get('/purchase-update', function (req, res) {
+//   const id = Number(req.query.id)
+//   const purchase = Purchase.getById(id)
+//   console.log(id, purchase)
+
+//   res.render('purchase-update', {
+//     style: 'purchase-update',
+//     data: {
+//       id: purchase.id,
+//       firstname: purchase.firstname,
+//       lastname: purchase.lastname,
+//       phone: purchase.phone,
+//       email: purchase.email,
+//     },
+//   })
+// })
+
+router.get('/purchase-update', function (req, res) {
+  const id = Number(req.query.id)
+
+  const purchase = Purchase.getById(id)
+
+  if (!purchase) {
+    // Якщо товар з таким id не знайдено, відображаємо повідомлення про помилку
+    res.render('alert-order', {
+      style: 'alert-order',
+      component: ['button', 'heading'],
+
+      isError: true,
+      title: 'Помилка',
+      info: 'Замовлення з таким ID не знайдено',
+    })
+  } else {
+    // Якщо товар знайдено, передаємо його дані у шаблон product-edit
+    res.render('purchase-update', {
+      style: 'purchase-update',
+      component: ['heading', 'divider', 'field', 'button'],
+
+      title: 'Зміна данних замовлення',
+
+      data: {
+        id: purchase.id,
+        firstname: purchase.firstname,
+        lastname: purchase.lastname,
+        phone: purchase.phone,
+        email: purchase.email,
+        delivery: purchase.delivery,
+      },
+    })
+  }
+})
+//=========================================================
+router.post('/purchase-update', function (req, res) {
+  const id = Number(req.query.id)
+  let { firstname, lastname, phone, email, delivery } =
+    req.body
+
+  const purchase = Purchase.getById(id)
+
+  console.log(purchase)
+
+  if (purchase) {
+    const newPurchase = Purchase.updateById(id, {
+      firstname,
+      lastname,
+      phone,
+      email,
+      delivery,
+    })
+
+    console.log(newPurchase)
+
+    // Якщо оновлення вдалося, відображаємо повідомлення про успіх
+    if (newPurchase) {
+      res.render('alert-order', {
+        style: 'alert-order',
+        component: ['button', 'heading'],
+
+        data: {
+          link: '/purchase-list',
+          title: 'Успішне виконання дії',
+          info: 'Товар успішно оновлено',
+        },
+      })
+    } else {
+      // Якщо оновлення не вдалося (наприклад, товару з таким id не існує),
+      // відображаємо повідомлення про помилку
+      res.render('alert-order', {
+        style: 'alert-order',
+        component: ['button', 'heading'],
+
+        data: {
+          link: '/purchase-list',
+          title: 'Помилка',
+          info: 'Не вдалося оновити товар',
+        },
+      })
+    }
+  } else {
+    // Якщо оновлення не вдалося (наприклад, товару з таким id не існує),
+    // відображаємо повідомлення про помилку
+    res.render('alert-order', {
+      style: 'alert-order',
+      component: ['button', 'heading'],
+
+      data: {
+        link: '/purchase-list',
+        title: 'Помилка',
+        info: 'Не вдалося оновити товар',
+      },
+    })
+  }
+})
+
+// ================================================================
 
 module.exports = router
