@@ -17,12 +17,27 @@
   </div>
 
   <div class="update__block">
-    {{>field label="Прізвище" name="lastname" value="{{lastname}}"}}
-    {{>field label="Ім`я" name="firstname" value="{{firstname}}"}}
+
+    <div class="block">
+      <div class=""><label for="{{lastname}}" class="field__label">Прізвище:</label></div>
+      <div class=""><input type="" value="{{lastname}}" name="lastname" class="field__input"></div>
+    </div>
+    <div class="block">
+      <div class=""><label for="{{firstname}}" class="field__label">Імя:</label></div>
+      <div class=""> <input type="" value="{{firstname}}" name="firstname" class="field__input"></div>
+    </div>
+
   </div>
   <div class="update__block">
-    {{>field label="Телефон" name="phone" value="{{phone}}"}}
-    {{>field label="Пошта" name="email" value="{{email}}"}}
+
+    <div class="block">
+      <div class=""><label for="{{phone}}" class="field__label">Телефон:</label></div>
+      <div class=""><input value="{{phone}}" name="phone" class="field__input"></div>
+    </div>
+    <div class="block">
+      <div class=""><label for="{{email}}" class="field__label">Пошта:</label></div>
+      <div class=""> <input value="{{email}}" name="email" class="field__input"></div>
+    </div>
   </div>
 
   {{>button text="Зберегти зміни"}}

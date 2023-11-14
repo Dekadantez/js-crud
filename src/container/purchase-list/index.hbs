@@ -4,7 +4,7 @@
 }}
 
 <main class="main">
-  {{#with data}}
+
   <form method="POST" action="/purchase-info?id={{id}}" class="form-card">
 
     {{> heading title="Мої замовлення"}}
@@ -13,33 +13,36 @@
 
 
     <div class="list__block">
-      {{#with purchases}}
+      {{#with data.purchases}}
       {{#each list}}
-      <div class="block">
-        <div class="list__card">
-          <div>ID: {{id}}</div>
+      <a href="/purchase-info?id={{id}}">
+        <div class="block">
+          <div class="list__card">
+            <div>ID: {{id}}</div>
+          </div>
+          <div class="list__card">
+            <div class="list__title">Товари</div>
+            <div class="list__text">{{product}}</div>
+          </div>
+          <div class="list__card">
+            <div class="list__title">Сума замовлення</div>
+            <div class="list__text">{{totalPrice}} UAH</div>
+          </div>
+          <div class="list__card">
+            <div class="list__title">Нараховані бонуси</div>
+            <div class="list__text">{{bonus}} UAH</div>
+          </div>
         </div>
-        <div class="list__card">
-          <div class="list__title">Товари</div>
-          <div class="list__text">{{product}}</div>
-        </div>
-        <div class="list__card">
-          <div class="list__title">Сума замовлення</div>
-          <div class="list__text">{{totalPrice}} UAH</div>
-        </div>
-        <div class="list__card">
-          <div class="list__title">Нараховані бонуси</div>
-          <div class="list__text">{{bonus}} UAH</div>
-        </div>
-        <a href="/purchase-info"></a>
-      </div>
+      </a>
       {{/each}}
       {{>divider}}
       {{/with}}
+
+
     </div>
 
   </form>
-  {{/with}}
+
 </main>
 
 

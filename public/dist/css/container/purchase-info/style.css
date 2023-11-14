@@ -84,4 +84,16 @@
   font-weight: 600;
 }
 
+.button-info {
+  display: flex;
+}
+
+.button-a {
+  width: 100%;
+}
+
+.button-b {
+  width: 100%;
+}
+
 /*# sourceMappingURL=style.css.map */
