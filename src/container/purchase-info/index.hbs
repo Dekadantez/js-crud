@@ -1,0 +1,86 @@
+{{!
+Це код container файлу для index сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+}}
+
+<main class="main">
+  {{#with data}}
+
+  {{> heading title="Інформація про замовлення"}}
+  <div class="data__name">
+    <div class="list__card">
+      <div class="list__title">ID:</div>
+      <div class="list__text">{{id}}</div>
+    </div>
+  </div>
+  {{>divider}}
+  <div class="data__name">
+    <div class="list__card">
+      <div class="list__title">Імя:</div>
+      <div class="list__text">{{firstname}}</div>
+    </div>
+    <div class="list__card">
+      <div class="list__title">Прізвище:</div>
+      <div class="list__text">{{lastname}} </div>
+    </div>
+  </div>
+  <div class="data__name">
+    <div class="list__card">
+      <div class="list__title">Телефон:</div>
+      <div class="list__text">{{phone}}</div>
+    </div>
+    <div class="list__card">
+      <div class="list__title">Електронна пошта:</div>
+      <div class="list__text">{{email}} </div>
+    </div>
+  </div>
+  {{>divider}}
+
+  <div class="data__info">
+    <div class="list__card">
+      <div class="list__title">Назва товару:</div>
+      <div class="list__text">{{product}}</div>
+    </div>
+    <div class="list__card">
+      <div class="list__title">Коментар:</div>
+      <div class="list__text">{{comment}} </div>
+    </div>
+  </div>
+  {{>divider}}
+  <div class="data__name">
+    <div class="list__card">
+      <div class="list__title">Вартість товарів:</div>
+      <div class="list__text">{{productPrice}} UAH</div>
+    </div>
+    <div class="list__card">
+      <div class="list__title">Вартість доставки:</div>
+      <div class="list__text">{{deliveryPrice}} UAH</div>
+    </div>
+  </div>
+  <div class="data__name">
+    <div class="list__card">
+      <div class="list__title">Сума до сплати:</div>
+      <div class="list__text">{{totalPrice}} UAH</div>
+    </div>
+    <div class="list__card">
+      <div class="list__title">Нараховані бонуси:</div>
+      <div class="list__text">{{bonus}} UAH</div>
+    </div>
+  </div>
+  <div class="button-info">
+    <a href='/purchase-update?id={{id}}' class="button-a">
+      <button class="button button-b"> Змінити дані </button>
+    </a>
+  </div>
+  {{/with}}
+</main>
+
+
+
+
+{{!
+Цей код містить лише те, що буде виводитись в
+
+<body>
+  Адже наш layout/default.hbs має вже структуру HTML
+  }}

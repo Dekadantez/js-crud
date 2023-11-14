@@ -1,0 +1,62 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../component/heading/style.scss' as heading;
+@use '../../component/divider/style.scss' as divider;
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: s.space(10);
+    padding:s.space(10);
+}
+
+.form-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: s.space(5);
+    padding: s.space(5);
+    border: 1px solid #cdcbcb;
+    border-radius: 10px;
+}
+.block {
+position: relative;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+gap: s.space(10);
+padding-top: 40px;
+text-decoration: none;
+
+&:hover {
+    div {
+        background-color: rgb(88, 158, 255);
+        color: rgb(255, 255, 255);
+    }
+}
+}
+a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  }
+
+.list__card {
+
+    font-size: 24px;
+    color: gray;
+}
+.list__title {
+    font-size: 20px;
+    color: gray;
+    padding-bottom: 20px;
+
+}
+.list__text{
+    font-size: 24px;
+    color: #000;
+    font-weight: 600;
+}

@@ -1,0 +1,19 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heading__title {
+  font-size: 32px;
+  color: blue;
+  font-weight: 600;
+}
+
+.heading__info {
+  font-size: 24px;
+  color: blue;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=style.css.map */
