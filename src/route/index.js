@@ -1288,7 +1288,7 @@ router.get('/spotify-list', function (req, res) {
 
     data: {
       playlists: allPlaylist,
-      list: result.amount,
+      list: result,
       value,
     },
   })
